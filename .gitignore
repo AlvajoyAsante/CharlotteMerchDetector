@@ -1,0 +1,20 @@
+# Ignore Python virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore system files
+.DS_Store
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore build artifacts
+build/
+dist/
+*.egg-info/
