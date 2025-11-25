@@ -23,7 +23,7 @@ This project runs a small Gradio app that streams your webcam, runs inference wi
 
 ## Requirements
 
-This project was developed for CPU usage. Install dependencies from `requirements.txt` into a virtual environment.
+This project was developed for CPU / GPU usage. Install dependencies from `requirements.txt` into a virtual environment.
 
 Minimum tested packages (see `requirements.txt` for full list):
 
