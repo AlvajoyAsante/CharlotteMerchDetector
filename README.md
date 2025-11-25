@@ -78,8 +78,6 @@ If you improve the detector or retrain the model, please:
 1. Add the new checkpoint to the `models/` folder or update `model_path`.
 2. Consider adding a small README note describing how the model was trained (dataset, augmentations, epochs, backbone).
 
-## License & credits
-
 ## License
 
 MIT License; Copyright (c) 2025; Alvajoy Asante, Aiden Valentine, Sofia Mata Avila, Santhosh Balla, Batman Whiteside
