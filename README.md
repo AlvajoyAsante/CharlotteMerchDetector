@@ -1,6 +1,6 @@
 # Charlotte Merch Detector
 
-![Charlotte Merch Detector demo](./docs/hero.png)
+![Charlotte Merch Detector demo](./docs/hero.jpg)
 
 A lightweight live detector that identifies University of North Carolina at Charlotte (UNCC) merchandise in webcam video using a custom YOLO model.
 
