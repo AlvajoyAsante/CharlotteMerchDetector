@@ -56,7 +56,8 @@ def detect_objects(frame):
     if frame is None:
         return None
 
-    frame = cv2.flip(frame, 1)
+    # No flip for uploaded images
+    # frame = cv2.flip(frame, 1) 
     frame = frame.copy()
 
     if model is None:
@@ -74,7 +75,7 @@ def detect_objects(frame):
 
     try:
         frame_bgr = cv2.cvtColor(inference_frame, cv2.COLOR_RGB2BGR)
-        results = model(frame_bgr, conf=0.75, verbose=False, half=False)
+        results = model(frame_bgr, conf=0.2, verbose=False, half=False)
 
         if len(results) == 0 or results[0].boxes is None:
             return frame
@@ -143,18 +144,16 @@ def detect_objects(frame):
     return frame
 
 
-
-with gr.Blocks(title="YOLO Live Detection") as demo:
-    gr.Markdown("# UNCC Merch Detector — Live Webcam Mode")
-
-    img_component = gr.Image(
-        sources=["webcam"],
-        type="numpy",
-        streaming=True,
-        label="Live Detection"
-    )
-
-    img_component.stream(detect_objects, inputs=img_component, outputs=img_component)
+with gr.Blocks(title="YOLO Image Detection") as demo:
+    gr.Markdown("# UNCC Merch Detector — Image Upload Mode")
+    
+    with gr.Row():
+        input_img = gr.Image(sources=["upload"], type="numpy", label="Upload Image")
+        output_img = gr.Image(type="numpy", label="Detection Result")
+        
+    detect_btn = gr.Button("Detect Merch")
+    
+    detect_btn.click(detect_objects, inputs=input_img, outputs=output_img)
 
 if __name__ == "__main__":
     demo.launch()

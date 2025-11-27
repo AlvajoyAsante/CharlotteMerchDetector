@@ -14,7 +14,8 @@ This project runs a small Gradio app that streams your webcam, runs inference wi
 
 ## Repository structure
 
-- `merch_detector.py` — main application (Gradio frontend + YOLO inference)
+- `merch_detector.py` — main application (Gradio frontend + YOLO inference) for live webcam detection
+- `merch_detector_upload.py` — application for image upload detection
 - `models/` — folder containing model weights
 	- `CMM-Yolo11.pt` — custom trained model used by the app
 	- `yolov8n.pt` — (optional) base model checkpoint
@@ -50,6 +51,7 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Live Webcam Detection
 Run the Gradio app which will open a browser window showing the webcam stream and live detections:
 
 ```
@@ -57,6 +59,15 @@ python merch_detector.py
 ```
 
 The app uses your default webcam. It streams frames to the model, draws bounding boxes and labels, and displays a running "UNCC MERCH COUNT".
+
+### Image Upload Detection
+To detect merch in a static image file:
+
+```
+python merch_detector_upload.py
+```
+
+This will open a Gradio interface where you can upload an image and see the detection results.
 
 ## How detection works (brief)
 
@@ -81,3 +92,4 @@ If you improve the detector or retrain the model, please:
 ## License
 
 MIT License; Copyright (c) 2025; Alvajoy Asante, Aiden Valentine, Sofia Mata Avila, Santhosh Balla, Batman Whiteside
+
